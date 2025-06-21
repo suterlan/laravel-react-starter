@@ -16,8 +16,9 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$role): Response
     {
-        if (!Auth::check() || !in_array(Auth::user()->role->name, $role)) {
-            return response()->view('error-page');
+        if (!Auth::check() || !Auth::user()->role || !in_array(Auth::user()->role->name, $role)) {
+            // Mengembalikan respons dengan status 403
+            return response()->view('error-page', ['message' => 'Forbidden Role'], 403);
         }
         return $next($request);
     }
