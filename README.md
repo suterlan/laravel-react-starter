@@ -45,6 +45,9 @@ cp .env.example .env
 composer install
 php artisan key:generate
 php artisan migrate --seed
+
+#install reverb
+php artisan reverb:install
 ```
 
 ### 3. Setup Frontend (React)
