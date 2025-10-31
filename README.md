@@ -41,8 +41,8 @@ cd nama-proyek
 ### 2. Setup Laravel Backend
 
 ```bash
-cp .env.example .env
 composer install
+cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 
